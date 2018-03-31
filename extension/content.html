@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>LAHacks 2018 Title!</title>
+
+    <style>
+        body {
+            min-width:400px;
+            min-height:450px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!--
+    <nav class="nav">
+    	<a class="nav-link disabled" href="#">Title</a>
+    	<a class="nav-link active" href="#">
+    		<div title="Statistics"><img src="home.png" alt=""></div>
+    	</a>
+    	<a class="nav-link" href="#">
+    		<div title="Alerts"><img src="notif.png" alt=""></div>
+    	</a>    	
+    	<a class="nav-link" href="#">Notifications</a>
+    </nav>
+    -->
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <!-- Title -->
+        <li>
+            <a class="nav-link disabled" href="#title" role="tab">
+                <h1 style="font-family:verdana; font-size:110%; text-align:left;">Title</h1>
+            </a>
+        </li>
+        <!-- Statistics tab -->
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#stats" role="tab" aria-controls="stats" aria-selected="true">
+                <div title="Statistics"><img src="stats.png" alt=""></div>
+            </a>
+        </li>
+
+        <!-- Alerts tab -->
+        <li class="nav-item">
+            <a class="nav-link" id="alert-tab" data-toggle="tab" href="#alert" role="tab" aria-controls="alert" aria-selected="false">
+                <div title="Alerts"><img src="alert.png" alt=""></div>
+            </a>
+        </li>
+
+        <!-- Notifications tab -->
+        <li class="nav-item">
+            <a class="nav-link" id="notif-tab" data-toggle="tab" href="#notif" role="tab" aria-controls="notif" aria-selected="false">
+                <div title="Notifications"><img src="home.png" alt=""></div>
+            </a>
+        </li>
+
+        <!-- Account tab -->
+        <li class="nav-item">
+            <a class="nav-link" id="acc-tab" data-toggle="tab" href="#account" role="tab" aria-controls="account" aria-selected="false">
+                <div title="Account/Settings"><img src="account.png" alt=""></div>
+            </a>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+        <!-- Statistics content -->
+        <div class="tab-pane fade show active" id="stats" role="tabpanel" aria-labelledby="home-tab">
+            <p>Statistics</p>
+        </div>
+
+        <!-- Alerts content -->
+        <div class="tab-pane fade" id="alert" role="tabpanel" aria-labelledby="alert-tab">
+            <p>Alerts</p>
+        </div>
+
+        <!-- Notifications content -->
+        <div class="tab-pane fade" id="notif" role="tabpanel" aria-labelledby="notif-tab">
+            <p>Notifications</p>
+        </div>
+
+        <!-- Account content -->
+        <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="acc-tab">
+            <p>Setting stuff</p>
+        </div>
+    </div>
+
+    <script unsafe-inline>
+        /*
+        $(document).ready(function(){
+            $('.nav-tabs a').click(function(){
+                $(this).tab('show');
+            });
+        });
+        */
+        $('#stats a').on('click', function (e) {
+            e.preventDefault()
+             $(this).tab('show')
+        })
+        $('#alert a').on('click', function (e) {
+            e.preventDefault()
+             $(this).tab('show')
+        })
+        $('#notif a').on('click', function (e) {
+            e.preventDefault()
+             $(this).tab('show')
+        })
+        $('#myTab a[href="#account"]').on('click', function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        })
+
+    </script>
+
+</body>
+</html>
