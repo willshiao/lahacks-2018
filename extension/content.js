@@ -8,23 +8,45 @@ function getLastMessage () {
   return $('div>span._3oh-').last()
 }
 
+function getTime (msg) {
+  return $(msg)
+    .parent()
+    .parent()
+    .attr('data-tooltip-content')
+}
+
+function makeMessage (msg) {
+  return {
+    message: $(msg).text(),
+    sender: getSender(msg),
+    recipient: getRecipient(),
+    time: getTime()
+  }
+}
+
 function getSender (msg) {
   const top = $(msg).parent().parent()
-    .parent().parent().parent()
-  return $(top).find('div._lt_q>a')
+    .parent().parent().parent().first()
+  if (!(top.find('a._5f0v').attr('href'))) return 'me'
+  return top.find('a._5f0v')
     .attr('href')
     .split('/')
     .pop()
 }
 
+function getRecipient () {
+  return window.location.href.split('/').pop()
+}
+
 function getData () {
-  const chatId = window.location.href.split('/').pop()
+  const chatId = getRecipient()
   const targetName = $('h2>span._3oh-').text()
   const messages = getMessages()
   console.log('Title:', targetName)
   console.log('Chat ID: ', chatId)
   messages.forEach(msg => {
     console.log('Found message: ', $(msg).text())
+    console.log(makeMessage(msg))
   })
   lastMessage = messages[messages.length - 1]
   setInterval(getNewMessages, 1000)
