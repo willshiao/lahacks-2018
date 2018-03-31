@@ -20,7 +20,7 @@ function makeMessage (msg) {
     message: $(msg).text(),
     sender: getSender(msg),
     recipient: getRecipient(),
-    time: getTime()
+    time: getTime(msg)
   }
 }
 
@@ -67,7 +67,7 @@ function getNewMessages () {
   newMessages = newMessages.reverse()
   newMessages.forEach(msg => {
     const sender = getSender(msg)
-    console.log(`Got new message: "${$(msg).text()}" from ${sender}`)
+    console.log('Got new message: ', makeMessage(msg))
   })
   return newMessages
 }
